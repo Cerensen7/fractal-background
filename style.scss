@@ -1,0 +1,79 @@
+// style.scss - SASS Dosyası
+
+// Değişkenler
+$primary-color: #ffffff;
+$bg-color: #050508;
+$bg-overlay: rgba(15, 15, 20, 0.7); // İçerik kutusunun arkasındaki hafif karartma
+$font-stack: 'Inter', 'Segoe UI', Helvetica, sans-serif;
+$accent-color: #a8b2d1;
+
+// Mixin'ler
+@mixin center-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+// Genel Stiller
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: $bg-color;
+    font-family: $font-stack;
+}
+
+// Canvas Ayarları (Fraktal)
+#fractalCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    opacity: 0.35; // Silik görünmesi için opaklık (0.1 - 0.5 arası idealdir)
+    pointer-events: none; // Fare tıklamalarının canvas yerine altındaki elementlere geçmesi için
+}
+
+// İçerik Ayarları
+.content {
+    @include center-flex;
+    position: relative;
+    z-index: 2; // Canvas'ın üstünde durması için z-index yüksek tutuluyor
+    height: 100vh;
+    color: $primary-color;
+    text-align: center;
+    background: $bg-overlay;
+    padding: 2rem;
+    backdrop-filter: blur(2px); // Arkadaki fraktali çok hafif buzlu gösterir
+    
+    h1 {
+        font-size: 4rem;
+        font-weight: 300;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        background: linear-gradient(90deg, #fff, $accent-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        line-height: 1.8;
+        opacity: 0.85;
+        font-weight: 300;
+        
+        &.php-text {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: $accent-color;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+        }
+    }
+}
