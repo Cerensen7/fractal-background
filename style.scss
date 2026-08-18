@@ -5,6 +5,7 @@ $font-stack: 'Inter', 'Segoe UI', Helvetica, sans-serif;
 $accent-color: #a8b2d1;
 
 
+// Mixin'ler
 @mixin center-flex {
     display: flex;
     flex-direction: column;
@@ -13,6 +14,7 @@ $accent-color: #a8b2d1;
 }
 
 
+// Genel Stiller
 body,
 html {
     margin: 0;
@@ -25,6 +27,7 @@ html {
 }
 
 
+// Canvas Ayarları (Fraktal)
 #fractalCanvas {
     position: fixed;
     top: 0;
@@ -33,20 +36,20 @@ html {
     height: 100vh;
     z-index: 1;
     opacity: 0.35;
-    pointer-events: none;
+    pointer-events: none; // Fare tıklamalarının canvas yerine altındaki elementlere geçmesi için
 }
 
 
 .content {
     @include center-flex;
     position: relative;
-    z-index: 2;
+    z-index: 2; // Canvas'ın üstünde durması için z-index yüksek tutuluyor
     height: 100vh;
     color: $primary-color;
     text-align: center;
     background: $bg-overlay;
     padding: 2rem;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px); // Arkadaki fraktali çok hafif buzlu gösterir
 
     h1 {
         font-size: 4rem;
