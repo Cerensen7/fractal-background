@@ -1,13 +1,9 @@
-// style.scss - SASS Dosyası
-
-// Değişkenler
 $primary-color: #ffffff;
 $bg-color: #050508;
-$bg-overlay: rgba(15, 15, 20, 0.7); // İçerik kutusunun arkasındaki hafif karartma
+$bg-overlay: rgba(15, 15, 20, 0.7);
 $font-stack: 'Inter', 'Segoe UI', Helvetica, sans-serif;
 $accent-color: #a8b2d1;
 
-// Mixin'ler
 @mixin center-flex {
     display: flex;
     flex-direction: column;
@@ -15,7 +11,6 @@ $accent-color: #a8b2d1;
     align-items: center;
 }
 
-// Genel Stiller
 body, html {
     margin: 0;
     padding: 0;
@@ -26,7 +21,6 @@ body, html {
     font-family: $font-stack;
 }
 
-// Canvas Ayarları (Fraktal)
 #fractalCanvas {
     position: fixed;
     top: 0;
@@ -34,22 +28,21 @@ body, html {
     width: 100vw;
     height: 100vh;
     z-index: 1;
-    opacity: 0.35; // Silik görünmesi için opaklık (0.1 - 0.5 arası idealdir)
-    pointer-events: none; // Fare tıklamalarının canvas yerine altındaki elementlere geçmesi için
+    opacity: 0.35;
+    pointer-events: none;
 }
 
-// İçerik Ayarları
 .content {
     @include center-flex;
     position: relative;
-    z-index: 2; // Canvas'ın üstünde durması için z-index yüksek tutuluyor
+    z-index: 2;
     height: 100vh;
     color: $primary-color;
     text-align: center;
     background: $bg-overlay;
     padding: 2rem;
-    backdrop-filter: blur(2px); // Arkadaki fraktali çok hafif buzlu gösterir
-    
+    backdrop-filter: blur(2px);
+
     h1 {
         font-size: 4rem;
         font-weight: 300;
@@ -60,20 +53,12 @@ body, html {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    
+
     p {
         font-size: 1.2rem;
         max-width: 600px;
         line-height: 1.8;
         opacity: 0.85;
         font-weight: 300;
-        
-        &.php-text {
-            margin-top: 2rem;
-            font-size: 1rem;
-            color: $accent-color;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-        }
     }
 }
