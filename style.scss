@@ -4,6 +4,7 @@ $bg-overlay: rgba(15, 15, 20, 0.7);
 $font-stack: 'Inter', 'Segoe UI', Helvetica, sans-serif;
 $accent-color: #a8b2d1;
 
+
 @mixin center-flex {
     display: flex;
     flex-direction: column;
@@ -11,7 +12,9 @@ $accent-color: #a8b2d1;
     align-items: center;
 }
 
-body, html {
+
+body,
+html {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -20,6 +23,7 @@ body, html {
     background-color: $bg-color;
     font-family: $font-stack;
 }
+
 
 #fractalCanvas {
     position: fixed;
@@ -31,6 +35,7 @@ body, html {
     opacity: 0.35;
     pointer-events: none;
 }
+
 
 .content {
     @include center-flex;
@@ -60,5 +65,13 @@ body, html {
         line-height: 1.8;
         opacity: 0.85;
         font-weight: 300;
+
+        &.php-text {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: $accent-color;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+        }
     }
 }
